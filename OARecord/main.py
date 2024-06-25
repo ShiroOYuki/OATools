@@ -15,12 +15,16 @@ class OARecord:
         
         with open(JSON_PATH, "r", encoding="utf-8") as jfile:
             jdata = json.loads(jfile.read())
-
-        res = jdata[feature][unit-1] + random.choice(jdata["Student"][attitude])
+            
+        unit_info = jdata[feature][unit-1]
+        attitude = random.choice(jdata["Student"][attitude])
+        ex = jdata["EX"]
+        
+        res = unit_info + "\n\t\n" + ex + "\n\t\n" + attitude
         
         if not is_complete: res += random.choice(jdata["Student"]["Uncomplete"])
         
-        return res + jdata["EX"]
+        return res
         
     
     def run(self):
