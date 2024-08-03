@@ -28,7 +28,6 @@ function load_student_info() {
                 for(let mutation of mutationsList) {
                     if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
                         // 在這裡你可以添加其他檢查來確保是你期待的元素已經載入
-                        console.log(class_type);
                         let label = document.querySelector("#remote_modal h4#myModalLabel");
                         label.innerHTML = `${label.textContent} (${class_type})`;
                         // 停止觀察
