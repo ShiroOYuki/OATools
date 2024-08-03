@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Orangeapple Corp Hints
 // @namespace    http://tampermonkey.net/
-// @version      1.1.3
+// @version      1.1.4
 // @description  顯示課程章節進度
 // @author       Shiro
 // @match        https://corp.orangeapple.co/*
