@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Orangeapple Corp Hints
 // @namespace    http://tampermonkey.net/
-// @version      1.0.1
+// @version      1.0.3
 // @description  顯示課程章節進度
 // @author       Shiro
 // @match        https://corp.orangeapple.co/*
@@ -107,12 +107,13 @@
         paper.style.zIndex = 2000;
         paper.style.backgroundColor = "white";
         paper.style.width = "min-content";
-        paper.style.padding = "5px";
+        // paper.style.padding = "5px";
         paper.style.borderRadius = "10px";
         paper.style.border = "1px solid black";
         paper.style.pointerEvents = "auto";
         paper.style.position = "relative";
         paper.style.visibility = "hidden";
+        paper.style.overflow = "hidden";
         return paper;
     }
 
@@ -122,7 +123,7 @@
         title.appendChild(title_text);
         title.style.fontWeight = "bold";
         title.style.width = "100px";
-        title.style.borderRight = "1px solid black"
+        // title.style.borderRight = "1px solid black"
         title.style.userSelect = "none";
         title.style.margin = "0px";
         title.style.padding = "5px";
@@ -140,7 +141,8 @@
         let chapter = document.createElement("p");
         chapter.appendChild(chapter_text);
         chapter.style.width = "50px";
-        chapter.style.borderRight = "1px solid black";
+        // chapter.style.borderRight = "1px solid black";
+        chapter.style.borderLeft = "1px solid black";
         chapter.style.textAlign = "center";
         chapter.style.userSelect = "none";
         chapter.style.margin = "0px";
@@ -166,6 +168,7 @@
         comp.style.pointerEvents = "none";
         comp.style.gap = "5px";
         comp.style.boxSizing = "border-box";
+        comp.style.zIndex = 2000;
         return comp;
     }
 
