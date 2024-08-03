@@ -1,19 +1,22 @@
 function load_ex_info() {
     let b = document.querySelector("#dt-stage-show > ul > li:nth-child(2) > a");
-    b.addEventListener("click", function(e) {
-        const observer = new MutationObserver((mutationsList, observer) => {
-            for(let mutation of mutationsList) {
-                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                    // 在這裡你可以添加其他檢查來確保是你期待的元素已經載入
-                    load_student_info();
-                    // 停止觀察
-                    observer.disconnect();
+    if (!b) load_student_info();
+    else {
+        b.addEventListener("click", function(e) {
+            const observer = new MutationObserver((mutationsList, observer) => {
+                for(let mutation of mutationsList) {
+                    if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                        // 在這裡你可以添加其他檢查來確保是你期待的元素已經載入
+                        load_student_info();
+                        // 停止觀察
+                        observer.disconnect();
+                    }
                 }
-            }
+            });
+            // 開始觀察 #content 容器的變化
+            observer.observe(document.getElementById('lesson_reports'), { childList: true, subtree: true });
         });
-        // 開始觀察 #content 容器的變化
-        observer.observe(document.getElementById('lesson_reports'), { childList: true, subtree: true });
-    });
+    }
 }
 
 function load_student_info() {
