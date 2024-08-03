@@ -7,7 +7,8 @@
 // @match        https://corp.orangeapple.co/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=orangeapple.co
 // @grant        none
-// @required     https://github.com/ShiroOYuki/OATools/raw/main/OAHint/hint.js
+// @require     https://github.com/ShiroOYuki/OATools/raw/main/OAHint/hint.js
+// ==/UserScript==
 
 (function() {
     'use strict';
