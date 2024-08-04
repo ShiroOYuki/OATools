@@ -114,7 +114,6 @@ function create_paper() {
     paper.style.zIndex = 2000;
     paper.style.backgroundColor = "white";
     paper.style.width = "min-content";
-    // paper.style.padding = "5px";
     paper.style.borderRadius = "10px";
     paper.style.border = "1px solid black";
     paper.style.pointerEvents = "auto";
@@ -130,7 +129,6 @@ function create_title(text) {
     title.appendChild(title_text);
     title.style.fontWeight = "bold";
     title.style.width = "100px";
-    // title.style.borderRight = "1px solid black"
     title.style.userSelect = "none";
     title.style.margin = "0px";
     title.style.padding = "5px";
@@ -148,7 +146,6 @@ function create_chapter(text) {
     let chapter = document.createElement("p");
     chapter.appendChild(chapter_text);
     chapter.style.width = "50px";
-    // chapter.style.borderRight = "1px solid black";
     chapter.style.borderLeft = "1px solid black";
     chapter.style.textAlign = "center";
     chapter.style.userSelect = "none";

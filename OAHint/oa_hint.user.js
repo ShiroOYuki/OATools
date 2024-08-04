@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Orangeapple Corp Hints
 // @namespace    http://tampermonkey.net/
-// @version      1.1.4
+// @version      1.1.5
 // @description  顯示課程章節進度
 // @author       Shiro
 // @match        https://corp.orangeapple.co/*
@@ -13,8 +13,7 @@
 
 (function() {
     'use strict';
-
-    // Your code here...
+    
     window.addEventListener('load', () => {
         load_hint();
         load_ex_info();
