@@ -12,7 +12,6 @@ class OARecord:
         pass
     
     def read_json(self, feature: str, unit: int, attitude: str, is_complete: bool) -> str:
-        
         with open(JSON_PATH, "r", encoding="utf-8") as jfile:
             jdata = json.loads(jfile.read())
             
