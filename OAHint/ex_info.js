@@ -33,13 +33,15 @@ function auto_fill(class_type, stage) {
         ["F", "G", "G", "H", "F", "I", "H", "G", "G", "H", "I", "G", "G", "F", "G"]
     ];
     const types = ["初階班", "進階班", "綜合應用班"]
-    let status = document.querySelector("#dt_admission_lesson_report_completion_status");
-    let start = document.querySelector("#dt_admission_lesson_report_start_from");
-    let end = document.querySelector("#dt_admission_lesson_report_end_to");
-    let pr = document.querySelector("#participation_start_10");
-    let od = document.querySelector("#order_start_10");
-    let contact = document.querySelector("#dt_admission_lesson_report_contact");
-
+    let status = document.querySelector("#dt_admission_lesson_report_completion_status");   // 完成狀況
+    let start = document.querySelector("#dt_admission_lesson_report_start_from");           // 起始章節
+    let end = document.querySelector("#dt_admission_lesson_report_end_to");                 // 結束章節
+    let pr = document.querySelector("#participation_start_10");                             // 課程參與 
+    let od = document.querySelector("#order_start_10");                                     // 課堂秩序
+    let contact = document.querySelector("#dt_admission_lesson_report_contact");            // 聯絡欄
+    let inner_status = document.querySelector("#admission_lesson_report_learning_status");  // 記錄 (給內部看的)
+    let inner_contact = document.querySelector("#lesson_report_comment");                   // 內部記錄文字框
+    
     class_type = types.indexOf(class_type);
     stage = stage.selectedIndex - 1;
     if (stage == -1) return
@@ -51,6 +53,10 @@ function auto_fill(class_type, stage) {
     pr.checked = true;
     od.checked = true;
     contact.value = "無。";
+    inner_status.selectedIndex = 1;
+
+    inner_contact.classList.remove("hidden");
+    inner_contact.value = "本週上課狀況良好，能自主完成課程。";
     
     if (is_done) {
         status.selectedIndex = 1;
@@ -66,7 +72,7 @@ function create_observer(class_type) {
     const observer = new MutationObserver((mutationsList, observer) => {
         for(let mutation of mutationsList) {
             if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
-                let label = document.querySelector("#remote_modal h4#myModalLabel");
+                let label = document.querySelector("#remote_modal h4.modal-title");
                 label.innerHTML = `${label.textContent} (${class_type})`;
 
                 let stage = document.querySelector("#dt_admission_lesson_report_learning_stage");
